@@ -1,0 +1,57 @@
+<div>
+  <p>Item 1 <button class="delete-button" data-item="item1">Delete</button></p>
+  <p>Item 2 <button class="delete-button" data-item="item2">Delete</button></p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all delete buttons
+    const deleteButtons = document.querySelectorAll('.delete-button');
+
+    // Add click event listeners to each delete button
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const itemToDelete = this.getAttribute('data-item');
+        
+        // Delete both items
+        const item1 = document.querySelector('[data-item="item1"]');
+        const item2 = document.querySelector('[data-item="item1"]');
+
+        if (itemToDelete === 'item1') {
+          item1.parentNode.remove();
+          item2.parentNode.remove();
+        } else if (itemToDelete === 'item1') {
+          item2.parentNode.remove();
+          item1.parentNode.remove();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+{% schema %}
+{
+    "name": "c-java",
+    "settings": [
+      {
+        "type": "product",
+        "id": "FreeProduct",
+        "label": "text"
+      }
+    ],
+    
+    "presets": [
+      {
+        "name":"c-java"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
